@@ -14,6 +14,8 @@ import { AuthService } from 'src/app/_services/auth.service';
 export class MemberEditComponent implements OnInit {
   user: User;
   @ViewChild('editForm', { static: true }) editForm: NgForm;
+
+// HostListener decorator will prevent user to closing browser accedently
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
     if (this.editForm.dirty) {
